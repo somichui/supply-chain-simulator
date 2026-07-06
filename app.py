@@ -18,16 +18,16 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.title("🏭 Multi-Echelon Supply Chain Simulator v2.0")
+st.title("Multi-Echelon Supply Chain Simulator v2.0")
 st.markdown("Stress test an AI-optimized supply chain against **Black Swan Shocks** and **Machine Learning Demand Forecasting**.")
 
 # --- SIDEBAR CONFIGURATION ---
-st.sidebar.header("🔧 Simulation Controls")
+st.sidebar.header("Simulation Controls")
 
 demand_mean = st.sidebar.slider("Avg Daily Customer Demand", min_value=5, max_value=100, value=20)
 days = st.sidebar.slider("Simulation Days", min_value=30, max_value=365, value=365)
 
-st.sidebar.header("💣 Black Swan Shocks")
+st.sidebar.header("Black Swan Shocks")
 enable_port_strike = st.sidebar.checkbox("Inject Port Strike (DC Delay)", help="A Black Swan event. Shipments heading to the Distribution Center are massively delayed. Watch the safety stock collapse under stress!")
 if enable_port_strike:
     strike_start = st.sidebar.slider("Strike Start Day", 1, days, 150)
@@ -37,17 +37,17 @@ if enable_port_strike:
 else:
     shock_event = None
 
-st.sidebar.header("📏 Chart Dimensions")
+st.sidebar.header("Chart Dimensions")
 chart_height = st.sidebar.slider("Inventory Chart Height", min_value=400, max_value=2500, value=800, step=100)
 chart_width = st.sidebar.slider("Chart Width (px)", min_value=600, max_value=2500, value=1200, step=100)
 use_auto_width = st.sidebar.checkbox("Auto-Fit Width to Screen", value=True)
 
-st.sidebar.header("🤖 Machine Learning")
+st.sidebar.header("Machine Learning")
 enable_ml = st.sidebar.checkbox("Enable ML Forecaster (Store Level)", help="Uses a Machine Learning model (Random Forest) trained on 2 years of synthetic historical data to predict daily demand. The Store will dynamically adjust its Reorder Point (s) and Order-Up-To Level (S) based on the AI's prediction of weekly seasonality!")
 if enable_ml:
     st.sidebar.success("Random Forest will dynamically adjust Retail Store's (s, S) policy based on predicted weekly seasonality.")
 
-if st.sidebar.button("🚀 Run Simulation", type="primary"):
+if st.sidebar.button("Run Simulation", type="primary"):
     with st.spinner("Training ML Models and Running Optimizer..."):
         
         # 1. Handle ML Training

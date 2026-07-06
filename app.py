@@ -18,7 +18,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.title("Multi-Echelon Supply Chain Simulator v2.0")
+st.title("AI-Optimized Multi-Echelon Supply Chain Digital Twin")
 st.markdown("Stress test an AI-optimized supply chain against **Black Swan Shocks** and **Machine Learning Demand Forecasting**.")
 
 # --- SIDEBAR CONFIGURATION ---
